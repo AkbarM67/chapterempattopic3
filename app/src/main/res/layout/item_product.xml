@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="product"
+            type="com.example.chapterempattopic3.DataProduct" />
+        <variable
+            name="Btnklikdetail"
+            type="com.example.chapterempattopic3.ProductAdapter.ItemClickListener" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/tvlistt"
+        android:onClick="@{()->Btnklikdetail.onItemClickListener(product)}"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/gambarproduct"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                app:imageResource='@{product.imgProduct}'/>
+
+            <TextView
+                android:id="@+id/NamaProduct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/gambarproduct"
+                android:text='@{product.nameProduct, default="Nama Product"}'
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/hargaProduct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/NamaProduct"
+                android:layout_toRightOf="@+id/gambarproduct"
+                android:text='@{product.hargaProduct, default="Harga Product"}'
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/gambarproduct"
+                android:text='@{product.descProduct, default="deskripsi"}' />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
